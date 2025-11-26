@@ -1,0 +1,22 @@
+$: n("<<1 5 5> 3 0 3 <1 5 5> 9 7 9>*16".add("<3 _ 0 3 <3 1> 0>*2"))
+  .scale("g:minor").s("gm_pan_flute").detune(slider(1))
+  .delay(.4).gain(slider(2, 0, 2))
+  ._pianoroll()
+_$: n("<~ ~ ~ ~ ~ 9 7 9>*16".add("<3 _ 0 3 <3 1> 0>*2"))
+  .scale("g:minor").s("gm_pan_flute").detune(slider(1)).delay(.4).gain(slider(2, 0, 2))
+  ._pianoroll()
+
+$: n("<<7 5 5> _ _ _ _ ~ ~ ~>*16".add("<3 _ 0 3 <3 1> 0>*2"))
+  .scale("g:minor").trans(12).s("gm_violin")
+  .lpenv(0.9  * 9).lps(.2).lpd(.15)
+  .delay(0.4).pan("<.5 1 .5 0>").room("<0.3, 0.5>")
+  .gain(slider(0.904, 0, 2))
+  ._pianoroll()
+
+$: n("<3 _ 0 3 <5 1> 0>*2")
+  .scale("C:minor").trans(-12).s("supersaw").detune(slider(0.868))
+  ._pianoroll()
+
+$: s("rolandtr909_bd:1!4").cut(2)
+  .gain(slider(2, 0, 2)).fit()._scope()
+$: sound("[~ hh hh hh ~ hh hh hh]").bank("yamaharx21").delay(.8).diode(2, 1).gain(slider(0.186,0 ,2)).fit()
